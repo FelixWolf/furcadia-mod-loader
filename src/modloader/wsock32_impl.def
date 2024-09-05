@@ -1,0 +1,19 @@
+LIBRARY wsock32
+EXPORTS
+    closesocket           @3
+    connect               @4
+    htons                 @9
+    inet_addr             @10
+    inet_ntoa             @11
+    recv                  @16
+    send                  @19
+    setsockopt            @21
+    shutdown              @22
+    socket                @23
+    gethostbyname         @52
+    gethostname           @57
+    WSAAsyncSelect        @101
+    WSAGetLastError       @111
+    WSACancelBlockingCall @113
+    WSAStartup            @115
+    WSACleanup            @116
