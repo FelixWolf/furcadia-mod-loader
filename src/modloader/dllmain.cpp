@@ -26,8 +26,6 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
     switch(ul_reason_for_call)
     {
         case DLL_PROCESS_ATTACH:
-            
-            printf("Failed!");
             if(!setupWSock32Forwarding())
             {
                 MessageBoxA(NULL, "Could not locate native wsock32.dll!"
