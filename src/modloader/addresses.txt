@@ -1,0 +1,24 @@
+#Program definition: <executable> <version> <sha256sum>
+prog furcadia.exe 31.2 033b4660717f3c79b4ca29dc43b9d03d8287d5df33972317bf1fe87c61777b95
+
+# Function pointers
+# function <name> <address>
+function chatMessage 0x00411f00 # char *
+function packetSend 0x004125b0 # char * data, int length
+
+# Hooks
+# hook <name> <address> [pad]
+# Pad is the length of additional bytes to ensure that instructions aren't
+#  sliced in half.
+# It can be seen as `5 + pad`, as the JMP + address is 5 bytes. So if we were
+#  to slice a function in half and need to pad it with a NOP, we set the pad to
+#  1.
+hook packetRecv 0x00414270 1
+hook packetSend 0x004125b0 1
+
+
+# Pointers
+# pointer <name> <address>
+
+# Variables
+# var <name> <address>

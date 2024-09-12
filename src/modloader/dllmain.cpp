@@ -3,22 +3,21 @@
 #include <strsafe.h>
 #include <iostream>
 #include <chrono>
+#include "sha256.h"
 
 typedef void (*FurcMessageFunc)(char*);
 
-DWORD WINAPI Init(LPVOID lpParameter)
+void init()
 {
+    /*
+    void* targetAddress = (void*)0x00414270;
+    size_t hookSize = 6;
+    originalHandleProtocolMessage = (HandleProtocolMessage_t)HookFunction(targetAddress, (void*)MyHandleProtocolMessage, hookSize);
+
     uintptr_t funAddress = 0x00411f00;
     FurcMessageFunc furcMessage = reinterpret_cast<FurcMessageFunc>(funAddress);
-    
+    */
     printf("Mod loader injected!");
-    return 0;
-}
-
-void setupHook()
-{
-    HANDLE threadHandle = CreateThread(NULL, 0, Init, NULL, 0, NULL);
-    CloseHandle(threadHandle);
 }
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)
@@ -36,7 +35,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
                 );
                 ExitProcess(1);
             }
-            setupHook();
+            init();
             break;
         
         case DLL_PROCESS_DETACH:

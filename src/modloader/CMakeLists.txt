@@ -5,10 +5,16 @@ set(modloader_SOURCE_FILES
     dllmain.cpp
     wsock32_impl.cpp
     wsock32_impl.def
+    sha256.c
+    path.cpp
+    hooking.cpp
 )
 
 set(modloader_HEADER_FILES
     wsock32_impl.hpp
+    sha256.h
+    path.h
+    hooking.h
 )
 
 
@@ -26,7 +32,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     SUFFIX ".dll"
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE wsock32 shlwapi)
+target_link_libraries(${PROJECT_NAME} PRIVATE pluginlib wsock32 shlwapi)
 
 target_link_options(${PROJECT_NAME} PRIVATE 
     -Wl,--enable-stdcall-fixup
