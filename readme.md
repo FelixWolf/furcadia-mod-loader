@@ -12,12 +12,12 @@ Our new module, while forwarding wsock32 functions, has additional features,
 
 ## How it (will) works
 When the module is hooked into furcadia, it add the following commands:
-* ``\`mod enable <name>`` - Load (if not already loaded) and enable a module
-* ``\`mod disable <name>`` - Unload (if loaded) and disable a module
-* ``\`mod load <name>`` - Load a module for the current session
-* ``\`mod unload <name>`` - Unload a module for the current session
-* ``\`mod reload <name>`` - Reload a module
-* ``\`mod list`` - List modules (and show which ones are enabled)
+* <code>`mod enable \<name></code> - Load (if not already loaded) and enable a module
+* <code>`mod disable \<name></code> - Unload (if loaded) and disable a module
+* <code>`mod load \<name></code> - Load a module for the current session
+* <code>`mod unload \<name></code> - Unload a module for the current session
+* <code>`mod reload \<name></code> - Reload a module
+* <code>`mod list</code> - List modules (and show which ones are enabled)
 
 This will load modules from `My Documents/Furcadia/plugins/`, which can also be
  changed by changing the `pluginlist.txt` file in this directory.
